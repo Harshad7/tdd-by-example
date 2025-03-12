@@ -1,3 +1,1 @@
-# tdd-by-example
-# tdd-by-example
-# tdd-by-example
+### Kent Beck - TDD by example
