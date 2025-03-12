@@ -1,0 +1,14 @@
+{
+  "name": "tdd-by-example",
+  "version": "1.0.0",
+  "description": "Kent Beck TDD by example code in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "TDD"
+  ],
+  "author": "Hpa",
+  "license": "ISC"
+}
