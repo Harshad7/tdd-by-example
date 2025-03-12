@@ -4,7 +4,8 @@
   "description": "Kent Beck TDD by example code in Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tj":"tsc && jest"
   },
   "keywords": [
     "TDD"
