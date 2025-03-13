@@ -8,5 +8,11 @@ export class Dollar {
     public times(multiplier: number) : Dollar | null{
        return new Dollar(this.amount * multiplier);
     }
+
+    public equals(obj: any): Boolean{
+        const dollar: Dollar  =  obj as Dollar;
+        return this.amount === dollar.amount;
+
+    }
 }
 
