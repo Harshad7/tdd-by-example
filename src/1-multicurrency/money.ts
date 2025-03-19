@@ -1,39 +1,66 @@
-export class Money{
+export  class Money{
     protected amount! : number;
-    constructor(amount : number) {
+    protected _currency! : string;
+    constructor(amount : number, currency : string) {
         this.amount = amount;
+        this._currency = currency;
     }
+
     public getAmount(): number{
         return this.amount
     }
+
     public equals(obj: any): Boolean{
         const money : Money =  obj as Money;
-        return this.amount === money.getAmount();
+        return this.amount === money.getAmount() && this._currency === money._currency;
+    }
+
+    static dollar (amount : number): Money{
+        return new Money(amount, 'USD')
+    }
+
+    static franc (amount: number): Money{
+        return new Money(amount,  'CHF')
+    }
+
+    times(multiplier : number) : Money | null{
+        return new Money(multiplier * this.amount, this.currency);
+    }
+    get currency() : string{
+        return this._currency
     }
 }
 
 export class Dollar extends Money{
+    _currency: string
+    public constructor(amount : number, currency: string){
+        super(amount, currency);
+        this._currency = currency
+    }
 
-    public constructor(amount : number){
-        super(amount);
+/*     get currency(): string{
+        return this._currency;
     }
     
-    public times(multiplier: number) : Dollar | null{
-       return new Dollar(this.amount * multiplier);
-    }
-
-  
+    public times(multiplier: number) : Money | null{
+       return new Money(this.amount * multiplier, this.currency);
+    } */
 }
 
 export class Franc extends Money {
-    
-    public constructor(amount : number){
-        super(amount);
+     _currency: string 
+    public constructor(amount : number, currency: string){
+        super(amount, currency);
+        this._currency = currency
     }   
-    
-    public times(multiplier: number) : Franc | null{
-       return new Franc(this.amount * multiplier);
+   
+ /*   public get currency(): string{
+        return 'CHF'
     }
+    
+    public times(multiplier: number) : Money | null{
+       return new Money(this.amount * multiplier, this.currency);
+    } */
 }
 
 

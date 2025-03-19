@@ -1,20 +1,31 @@
-import { Dollar, Franc } from './money'
+import {Money, Dollar, Franc } from './money'
 
 test('Test multiplication', ()=>{
-    const five = new Dollar(5);
-    expect(five.times(2)).toEqual(expect.objectContaining(new Dollar(10)));
-    expect(five.times(3)).toEqual(expect.objectContaining(new Dollar(15)));
+    const five: Money = Money.dollar(5);
+    expect(five.times(2)).toEqual(expect.objectContaining(Money.dollar(10)));
+    expect(five.times(3)).toEqual(expect.objectContaining(Money.dollar(15)));
 })
 
 test('Test Franc multiplication', ()=>{
-    const five = new Franc(5);
-    expect(five.times(2)).toEqual(expect.objectContaining(new Franc(10)));
-    expect(five.times(3)).toEqual(expect.objectContaining(new Franc(15)));
+    const five = Money.franc(5);
+    expect(five.times(2)).toEqual(expect.objectContaining(Money.franc(10)));
+    expect(five.times(3)).toEqual(expect.objectContaining(Money.franc(15)));
 })
 
 test('Testing equality', ()=> {
-    expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy
-    expect(new Dollar(6).equals(new Dollar(5))).toBeFalsy
-    expect(new Franc(5).equals(new Franc(5))).toBeTruthy
-    expect(new Franc(6).equals(new Franc(5))).toBeFalsy
+    expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy
+    expect(Money.dollar(6).equals(Money.dollar(5))).toBeFalsy
+/*     expect(Money.franc(5).equals(Money.franc(5))).toBeTruthy
+    expect(Money.franc(6).equals(Money.franc(5))).toBeFalsy */
+    expect(Money.franc(5).equals(Money.dollar(5))).toBeFalsy
 })
+
+test('Testing Currencies', ()=>{
+    expect('USD').toBe(Money.dollar(1).currency)
+    expect('CHF').toBe(Money.franc(1).currency)
+})
+
+/* test('Different class Equality', ()=>{
+    expect(new Money(10, 'CHF')).toEqual(new Franc(10, 'CHF'))
+})
+ */
