@@ -1,4 +1,4 @@
-import {Money, Dollar, Franc } from './money'
+import {Money } from './money'
 
 test('Test multiplication', ()=>{
     const five: Money = Money.dollar(5);
@@ -15,8 +15,6 @@ test('Test Franc multiplication', ()=>{
 test('Testing equality', ()=> {
     expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy
     expect(Money.dollar(6).equals(Money.dollar(5))).toBeFalsy
-/*     expect(Money.franc(5).equals(Money.franc(5))).toBeTruthy
-    expect(Money.franc(6).equals(Money.franc(5))).toBeFalsy */
     expect(Money.franc(5).equals(Money.dollar(5))).toBeFalsy
 })
 
@@ -24,8 +22,3 @@ test('Testing Currencies', ()=>{
     expect('USD').toBe(Money.dollar(1).currency)
     expect('CHF').toBe(Money.franc(1).currency)
 })
-
-/* test('Different class Equality', ()=>{
-    expect(new Money(10, 'CHF')).toEqual(new Franc(10, 'CHF'))
-})
- */

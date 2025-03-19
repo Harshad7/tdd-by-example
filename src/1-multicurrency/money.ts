@@ -31,37 +31,6 @@ export  class Money{
     }
 }
 
-export class Dollar extends Money{
-    _currency: string
-    public constructor(amount : number, currency: string){
-        super(amount, currency);
-        this._currency = currency
-    }
-
-/*     get currency(): string{
-        return this._currency;
-    }
-    
-    public times(multiplier: number) : Money | null{
-       return new Money(this.amount * multiplier, this.currency);
-    } */
-}
-
-export class Franc extends Money {
-     _currency: string 
-    public constructor(amount : number, currency: string){
-        super(amount, currency);
-        this._currency = currency
-    }   
-   
- /*   public get currency(): string{
-        return 'CHF'
-    }
-    
-    public times(multiplier: number) : Money | null{
-       return new Money(this.amount * multiplier, this.currency);
-    } */
-}
 
 
 
