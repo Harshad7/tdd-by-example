@@ -1,4 +1,4 @@
-import {Money } from './money'
+import {Money, Expression, Bank,  } from './money'
 
 test('Test multiplication', ()=>{
     const five: Money = Money.dollar(5);
@@ -21,4 +21,16 @@ test('Testing equality', ()=> {
 test('Testing Currencies', ()=>{
     expect('USD').toBe(Money.dollar(1).currency)
     expect('CHF').toBe(Money.franc(1).currency)
+})
+
+test('Addition', ()=>{
+   /* const sum : Money = Money.dollar(5).plus(Money.dollar(5));
+    expect(Money.dollar(10)).toEqual(sum) */
+    const five : Money = Money.dollar(5);
+    const sum : Expression = five.plus(five);
+    const bank : Bank = new Bank(); 
+    const reduce : Money | null = bank.reduce(sum, 'USD');
+    expect(Money.dollar(10)).toEqual(reduce)
+    
+
 })

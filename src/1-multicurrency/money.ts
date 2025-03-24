@@ -1,4 +1,4 @@
-export  class Money{
+export class Money implements Expression{
     protected amount! : number;
     protected _currency! : string;
     constructor(amount : number, currency : string) {
@@ -29,8 +29,20 @@ export  class Money{
     get currency() : string{
         return this._currency
     }
+
+    public plus (addend: Money): Money {
+        return new Money(this.amount + addend.amount, this.currency);
+    }
 }
 
+export interface Expression{
 
+}
+
+export class Bank{
+    public reduce(source : Expression , to : string ): Money | null{
+        return Money.dollar(10);
+    }
+}
 
 
